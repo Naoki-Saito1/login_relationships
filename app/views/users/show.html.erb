@@ -1,2 +1,12 @@
 <h1><%= @user.name %>のページ</h1>
 <p class="p">メールアドレス: <%= @user.email %></p>
+
+<h3>フォローしているユーザー一覧</h3>
+<% @user.following.each do |following| %>
+  <p>User名:<%= link_to "#{following.name}", user_path(following) %></p>
+<% end %>
+<p><%#= @user.following %></p>
+<h3>フォローされている</h3>
+<% @user.followers.each do |followers| %>
+<p>User名:<%= link_to "#{followers.name}", user_path(followers) %></p>
+<% end %>
